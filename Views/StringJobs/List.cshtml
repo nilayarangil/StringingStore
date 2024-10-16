@@ -1,0 +1,41 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+@model List<StringingStore.Models.Entities.StringJob>
+
+<h1>String Jobs</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>String Name</th>
+            <th>String Tension</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var stringJob in Model)
+        {
+            <tr>
+                <td>@stringJob.Id</td>
+                <td>@stringJob.FirstName</td>
+                <td>@stringJob.LastName</td>
+                <td>@stringJob.StringName</td>
+                <td>@stringJob.Tension</td>
+                <td>
+                    <a class="btn btn-primary" asp-controller="StringJobs" asp-action="Edit" asp-route-id="@stringJob.Id">Edit</a>
+                </td>
+                <td>
+                   
+                    <a class="btn btn-danger" asp-controller="StringJobs" asp-action="Delete" asp-route-id="@stringJob.Id">Delete</a>
+                 
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
